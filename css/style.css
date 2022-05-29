@@ -20,9 +20,11 @@ ul{
 body{
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
-header{
+nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -43,77 +45,82 @@ header{
     color:#e4d3b0;
 }
 
-.navbar-toggler{
-    margin: auto 20px;
-}
-
-.navbar-toggler{
+.navbar-toggler {
     width: 20px;
     height: 20px;
     position: relative;
-    transition: .5s ease-in-out all;
+    transition: .5s ease-in-out;
 }
 
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
-.navbar-toggler-icon:focus{
+.navbar-toggler-icon:focus {
     outline: none;
     box-shadow: none;
     border: 0;
+    position: relative;
+    right: 5%;
+    bottom: 5px;
 }
 
-.navbar-toggler span{
+.navbar-toggler span {
     margin: 0;
     padding: 0;
 }
 
-.toggler-icon{
+.toggler-icon {
     display: block;
     position: absolute;
     height: 2px;
     width: 100%;
-    background-color: black;
+    background: black;
     border-radius: 1px;
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
-    transition: .25s ease-in-out all;
+    transition: .25s ease-in-out;
 }
 
-.middle-bar{
+.middle-bar {
     margin-top: 0px;
+}
+
+.navbar-toggler.collapsed .top-bar {
+    position: absolute;
+    bottom: 50%;
+    transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+    opacity: 1;
+    position: absolute;
+    bottom: 20%;
+    filter: alpha(opacity=100);
     width: 25px;
 }
 
-.navbar-toggler .top-bar{
-    margin-top: 0px;
+.navbar-toggler.collapsed .bottom-bar {
+    position: absolute;
+    top: 100%;
+    transform: rotate(0deg);
+}
+
+
+.navbar-toggler .top-bar {
+    top: inherit;
     transform: rotate(135deg);
 }
 
-.navbar-toggler .middle-bar{
+.navbar-toggler .middle-bar {
     opacity: 0;
+    top: inherit;
     filter: alpha(opacity=0);
 }
 
-.navbar-toggler .bottom-bar{
-    margin-top: 0px;
+.navbar-toggler .bottom-bar {
+    top: inherit;
     transform: rotate(-135deg);
-}
-
-.navbar-toggler.collapsed .top-bar{
-    margin-top: -8px;
-    transform: rotate(0deg);
-}
-
-.navbar-toggler.collapsed .middle-bar{
-    opacity: 1;
-    filter: alpha(opacity=100);
-}
-
-.navbar-toggler.collapsed .bottom-bar{
-    margin-top: 8px;
-    transform: rotate(0deg);
 }
 
 .navbar-nav{
@@ -121,26 +128,132 @@ header{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 90vh;
 }
 
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-    color: #e4d3b0;
+    color: black;
 }
 
 
 .nav-link{
     font-family: 'Poppins',sans-serif;
-    font-weight: bold;
-    font-size: 10pt;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
 }
 
+.nav-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    bottom: 10%;
+}
 .nav-item:hover{
     transform: scale(1.1);
     transition: 0.5s all ease;
 }
 
-/* tablets */
-@media screen and (min-width: 630px){
+#landing h1{
+    font-family: 'Poppins',sans-serif;
+    font-size: 40pt;
+    color: #3e2066;
+    font-weight: bolder;
+}
 
+#landing h3{
+    font-family: 'Poppins',sans-serif;
+    font-size: 15pt;
+    color: black;
+    font-weight: bolder;
+}
+
+#landing h3 span{
+    color: #3e2066;
+}
+#landing p{
+    font-family: 'Poppins',sans-serif;
+}
+/* tablets */
+@media screen and (min-width: 620px){
+    .navbar-brand{
+        margin: auto 70px;
+        font-size: 25pt;
+    }
+
+    .navbar-toggler{
+        margin: auto 50px;
+    }
+
+    .nav-link{
+        font-size: 20px;
+        margin: auto 2px;
+    }
+}
+
+/* laptops */
+@media screen and (min-width: 768px) {
+    .navbar-brand{
+        position: relative;
+        top: 0;
+        left: 2px;
+        font-size: 25pt;
+    }
+
+    .navbar-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 0;
+        right: 15%;
+    }
+
+    .nav-link{
+        font-size: 11pt;
+        margin: auto 2px;
+    }
+
+    .navbar-nav{
+        height: 10vh;
+    }
+
+    .nav-item{
+        bottom:-5%;
+    }
+
+    #landing h1{
+        font-size: 40pt;
+    }
+    
+}
+/* desktop */
+@media screen and (min-width:1200px) {
+    .navbar-brand{
+        position: relative;
+        top: 0;
+        left: 10%;
+    }
+
+    .navbar-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 0;
+        right: 15%;
+    }
+
+    .nav-link{
+        font-size: 11pt;
+        margin: auto 2px;
+    }
+
+    .navbar-nav{
+        height: 10vh;
+    }
+    
 }
